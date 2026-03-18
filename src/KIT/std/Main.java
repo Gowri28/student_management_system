@@ -1,0 +1,76 @@
+package KIT.std;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args)
+	{
+		StudentService service = new StudentService();
+		Scanner scanner = new Scanner(System.in);
+int choice;
+
+do {
+    System.out.println("\n---Student Management System---");
+    System.out.println("1.Add Student");
+    System.out.println("2.View Student");
+    System.out.println("3.Update Student");
+    System.out.println("4.Delete Student");
+    System.out.println("0.Exit");
+    System.out.println("Enter your choice:");
+
+    choice = scanner.nextInt();
+    scanner.nextLine();
+
+    switch(choice)
+    {
+    case 1:
+        System.out.println("Enter ID:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Enter Name:");
+        String name = scanner.nextLine();
+
+        System.out.println("Enter Course:");
+        String course = scanner.nextLine();
+
+        service.addStudent(new Student(id,name,course));
+        break;
+
+    case 2:
+        service.viewStudents();
+        break;
+
+    case 3:
+        System.out.println("Enter ID to update:");
+        int uid = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Enter New Name:");
+        String newName = scanner.nextLine();
+
+        System.out.println("Enter New Course:");
+        String newCourse = scanner.nextLine();
+
+        service.updateStudent(uid,newName,newCourse);
+        break;
+
+    case 4:
+        System.out.println("Enter ID to delete:");
+        int did = scanner.nextInt();
+        service.deleteStudent(did);
+        break;
+
+    case 0:
+        System.out.println("Exiting...");
+        break;
+
+    default:
+        System.out.println("Invalid choice.");
+    }
+
+} while(choice!=0);
+
+scanner.close();
+	}
+
+}
