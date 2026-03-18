@@ -24,5 +24,4 @@ It is used to manage student details like adding, viewing, updating and deleting
 ## Note
 This project is created for learning purpose to understand core Java concepts.
 
-## Author
-Gowri M
+
